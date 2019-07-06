@@ -10,7 +10,8 @@ import (
 
 // HystrixWrapper : Struct that holds all client information
 type HystrixWrapper struct {
-	clients map[string]*http.Client
+	clients     map[string]*http.Client
+	contextType string
 }
 
 // Client : Holds all the clients that addressable by api string
@@ -19,7 +20,7 @@ var Client *HystrixWrapper
 func init() {
 	clients := make(map[string]*http.Client)
 
-	Client = &HystrixWrapper{clients}
+	Client = &HystrixWrapper{clients, "application/json"}
 }
 
 // InitializeClientWithTimeout : Takes in Options to configure specifics of a client
