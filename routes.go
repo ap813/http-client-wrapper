@@ -91,13 +91,14 @@ func (hw HystrixWrapper) GoGet(api, route, url string, bytesChan chan []byte, er
 }
 
 /*
-	DoPost : synchronous Post Call to api
+	DoRequestWithBody : synchronous Method Call to api
 
 	Parameters:
 	* api: Specifies client and is apart of hystrix stream name
 	* route: Route makes hystrix stream name unique once appended
 	* url: Endpoint
-	* body: bytes of the post body
+	* method: Type of request
+	* body: Bytes of the post body
 */
 func (hw HystrixWrapper) DoRequestWithBody(api, route, url, method string, body []byte) ([]byte, error) {
 
@@ -140,13 +141,14 @@ func (hw HystrixWrapper) DoRequestWithBody(api, route, url, method string, body 
 }
 
 /*
-	GoPost : asynchronous Post Call to api
+	GoRequestWithBody : asynchronous Method Call to api
 
 	Parameters:
 	* api: Specifies client and is apart of hystrix stream name
 	* route: Route makes hystrix stream name unique once appended
 	* url: Endpoint
-	* body: bytes of the post body
+	* method: Type of request
+	* body: Bytes of the post body
 	* bytesChan: Bytes will be received in this channel
 	* errChan: Error will be received in this channel
 */
