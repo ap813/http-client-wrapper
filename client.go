@@ -21,6 +21,8 @@ func init() {
 	clients := make(map[string]*http.Client)
 
 	Client = &HystrixWrapper{clients, "application/json"}
+
+	Client.contextType = "application/json"
 }
 
 // InitializeClientWithTimeout : Takes in Options to configure specifics of a client
